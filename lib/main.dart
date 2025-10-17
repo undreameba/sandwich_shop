@@ -10,14 +10,35 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Sandwich Shop App',
-      home: Scaffold(
-        appBar: AppBar(title: const Text('Sandwich Counter')),
-        body: const Center(
-          child: OrderItemDisplay(5, 'Reuben'),
-        ),
-      ),
-    );
+        title: 'Sandwich Shop App',
+        home: Scaffold(
+            appBar: AppBar(title: const Text('Sandwich Counter')),
+            body: Row(children: [
+              Container(
+                color: Colors.blue,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(20),
+                width: 400,
+                height: 300,
+                child: OrderItemDisplay(5, 'Reuben'),
+              ),
+              Container(
+                color: Colors.blue,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(20),
+                width: 400,
+                height: 300,
+                child: OrderItemDisplay(5, 'Reuben'),
+              ),
+              Container(
+                color: Colors.blue,
+                alignment: Alignment.center,
+                padding: EdgeInsets.all(20),
+                width: 400,
+                height: 300,
+                child: OrderItemDisplay(5, 'Reuben'),
+              )
+            ])));
   }
 }
 

@@ -29,6 +29,8 @@ class OrderScreen extends StatefulWidget {
 
 class _OrderScreenState extends State<OrderScreen> {
   int _quantity = 0;
+  final _sandwichType = <String>['Footlong', 'Six-inch'];
+  double _sandwichTypeIndex = 0;
 
   void _increaseQuantity() {
     if (_quantity < widget.maxQuantity) {
@@ -42,6 +44,10 @@ class _OrderScreenState extends State<OrderScreen> {
     }
   }
 
+  //void _sandwichTypeChange() {
+  //if
+  //}
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +58,21 @@ class _OrderScreenState extends State<OrderScreen> {
             child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            OrderItemDisplay(_quantity, 'Footlong'),
+            SizedBox(
+                width: 100,
+                height: 50,
+                child: Slider(
+                    value: _sandwichTypeIndex,
+                    max: 1,
+                    divisions: 1,
+                    label: _sandwichType[_sandwichTypeIndex.toInt()],
+                    onChanged: (double value) {
+                      setState(() {
+                        _sandwichTypeIndex = value;
+                      });
+                    })),
+            OrderItemDisplay(
+                _quantity, _sandwichType[_sandwichTypeIndex.toInt()]),
             Row(mainAxisAlignment: MainAxisAlignment.center, children: [
               ElevatedButton(
                 onPressed:
